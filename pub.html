@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+    <style>
+          body {
+            width: 100%;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 10000px;
+            text-align: center;
+            background: radial-gradient(circle at bottom, white, white);
+           overflow-y: auto !important; 
+           justify-content: center;
+           background-color: #55f705;
+
+            position: relative;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+
+        .particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255, 0, 0, 0.8);
+            border-radius: 50%;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+   .container {
+    position: relative; width: 80%; /* Keep it within the main section */
+    margin: 1rem auto; /* Centers the section */
+    box-shadow: 0 0 10px rgba(216, 216, 6, 0.2);
+    text-align: center;
+    width: 80%;
+   padding: 2rem;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+}
+.scoring-section {
+    position: relative; width: 80%; /* Keep it within the main section */
+    margin: 1rem auto; /* Centers the section */
+    box-shadow: 0 0 10px rgba(216, 216, 6, 0.2);
+    text-align: center;
+    width: 80%;
+   padding: 2rem;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.scoring-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Moves video behind the content */
+    opacity: 0.5; 
+} 
+ .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}       
+       
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Moves video behind the content */
+    opacity: 0.5; /* Adjust transparency */
+}
+        .title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+         .rule-button {
+            background-color: #127712;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin: 8px;
+        }
+        .cta-button {
+            background-color: #f10707;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin: 8px;
+            margin-bottom: 40px;
+        }
+        .cta-button:hover{
+            background-color: #f90add;
+            transform: scale(1.05);
+        }
+        .rule-button:hover {
+            background-color: #55f705;
+            transform: scale(1.05);
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .rules-box{
+     background: linear-gradient(to right, #e8f389, #f18c9f);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    display: yellow;
+    width: 80%; /* Keep it within the main section */
+    margin: 1rem auto; /* Centers the section */
+    box-shadow: 0 0 10px rgba(216, 216, 6, 0.2);
+    text-align: center;
+    border: 3px solid #fe8409; /* Adds a solid black border */
+}
+        .rule-container {
+            display: none;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        h1 {
+            margin-top: 10px;
+        }
+		header {
+	         background-image: url('next.png');
+		
+             background-color: #FF8C00;
+            color:#2F4F4F;
+            padding: 4rem;
+            text-align: center;
+        }
+        footer {
+    background-image: url('next 1.png');
+    
+    background-position: center;
+    background-color: #FF8C00;
+    color: #2F4F4F;
+    padding: 4rem;
+    text-align: center;
+}
+       
+        h2  {
+     background: linear-gradient(to right, #f2b750, #e984da);
+    color: #4409f4;
+    padding: 2rem;
+    border-radius: 10px;
+    display: yellow;
+    width: 80%; /* Keep it within the main section */
+    margin: 1rem auto; /* Centers the section */
+    box-shadow: 0 0 10px rgba(216, 216, 6, 0.2);
+    text-align: center;
+    border: 3px solid #fe8409; /* Adds a solid black border */
+}
+   .scoring-section h2 {
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    z-index: 1; /* Ensures the text is visible */
+}     
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+<div class="main-container"></div>
+<video autoplay loop muted playsinline class="scoring-video">
+        <source src="fi.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+   <div class="container">
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="snow.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <h1 class="title">Welcome to the Rules and Regulations.</h1>
+    <p class="description">Rule is always a rule and it should be respected by everyone.</p>
+    
+    <div class="button-container">
+        <button class="cta-button" onclick="handlessClick()">whatsapp</button>
+        <button class="cta-button" onclick="handlesClick()">Whatsapp</button>
+        <button class="cta-button" onclick="handleClick()">Instagram</button>
+        
+    </div>
+</div>
+
+ <div class="button-container">
+            <button class="cta-button"  onclick="andleClick()">Photos</button>
+           
+        </div>
+
+        
+       <!-- Wrapper for the Scoring Rules Section -->
+<div class="scoring-section">
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="scoring-video">
+        <source src="sn.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Scoring Rules Title -->
+    <h2>Auction rules</h2>
+</div>
+
+        
+            <div class="container">
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="sky.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+            <button class="rule-button" onclick="toggleRule('rule1')">Total Budget</button>
+            <div id="rule1" class="rule-container">Total <b>Budget</b> in auction: 150cr.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule2')">RTM Count</button>
+            <div id="rule2" class="rule-container">Total number of <b>RTM</b>: 2.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule3')">Max Players</button>
+            <div id="rule3" class="rule-container"><b>Maximum</b> number of players for a team: 20.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule4')">Warning</button>
+            <div id="rule4" class="rule-container">All should enter their team playersname in their respective tables only.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule5')">Foreign Players</button>
+            <div id="rule5" class="rule-container">Maximum number of <b>foreign</b> players: 10.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule6')">Unsold players</button>
+            <div id="rule6" class="rule-container">All must enter the unsold players list in the given table.</div>
+        </div>
+      
+        
+        <div class="scoring-section">
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="scoring-video">
+        <source src="sn.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Scoring Rules Title -->
+    <h2>Scoring Rules</h2>
+</div>>
+       
+            <div class="container">
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="sky.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+            <button class="rule-button" onclick="toggleRule('rule7')">Player Points</button>
+            <div id="rule7" class="rule-container">Each player in the list is assigned to a particular number of points.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule8')">Performance Rating</button>
+            <div id="rule8" class="rule-container">Points range from 6-10 based on the player's performance.</div>
+            <button class="rule-button" onclick="toggleRule('rule9')">Default point</button>
+            <div id="rule9" class="rule-container">If you take the players not in the list ,You will get 4 points only.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule10')">Name Accuracy</button>
+            <div id="rule10" class="rule-container">Player names should be written correctly or you will not receive the exact points.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule11')">Copy-Paste Names</button>
+            <div id="rule11" class="rule-container">To avoid errors, copy and paste the player's name from the list.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule12')">Winning Criteria</button>
+            <div id="rule12" class="rule-container">The teams with the highest points will be declared the winner.</div>
+        </div>
+    </div>
+    <div class="button-container">
+            <button class="cta-button" onclick="handlClick()">Lets Start</button>
+            </div>
+            <footer>
+
+            </footer>
+             <audio id="bg-music" autoplay loop>
+        <source src="bgm.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+        let audio = document.getElementById("bg-music");
+
+        // Restore playback position and state
+        let savedTime = sessionStorage.getItem("audioTime");
+        let wasPlaying = sessionStorage.getItem("audioPlaying") === "true";
+
+        if (savedTime) {
+            audio.currentTime = parseFloat(savedTime);
+        }
+
+        if (wasPlaying) {
+            let playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay blocked: " + error);
+                    // Require user interaction to play
+                    document.addEventListener("click", playAudioOnce);
+                });
+            }
+        }
+
+        function playAudioOnce() {
+            audio.play();
+            document.removeEventListener("click", playAudioOnce);
+        }
+
+        // Save playback position and state before leaving
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem("audioTime", audio.currentTime);
+            sessionStorage.setItem("audioPlaying", !audio.paused);
+        });
+    });
+        function handleClick() {
+            window.open( "https://www.instagram.com/su.jin7301/?next=%2F", "_blank");
+        }  function handlesClick() {
+             window.open("https://chat.whatsapp.com/KXFeIccsFF4Kmx43EYIowB", "_blank");
+        }function handlessClick() {
+           window.open( "https://chat.whatsapp.com/I5ZyUViBDhuKZq43quisod", "_blank");
+        }function handlClick() {
+            window.location.href = "pu.html"; target="parent";
+        }function andleClick() {
+           window.location.href = "new47.html"; target="parent";
+        }
+       
+
+        function toggleRule(ruleId) {
+            var ruleElement = document.getElementById(ruleId);
+            if (ruleElement.style.display === "none" || ruleElement.style.display === "") {
+                ruleElement.style.display = "block";
+            } else {
+                ruleElement.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
