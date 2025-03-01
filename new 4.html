@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ede264, #ed7a7a);
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:2hv;
+            flex-direction: column;
+            transition: background 0.5s ease;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 1000px;
+              margin-bottom: 20px;
+            background: linear-gradient(to right, #8deff6, #d8b73e);
+            
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+         .rule-button {
+            background-color: #127712;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin: 8px;
+        }
+        .cta-button {
+            background-color: #f10707;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin: 8px;
+            margin-bottom: 40px;
+        }
+        .cta-button:hover{
+            background-color: #f90add;
+            transform: scale(1.05);
+        }
+        .rule-button:hover {
+            background-color: #55f705;
+            transform: scale(1.05);
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .rules-box {
+             margin-bottom: 20px;
+            background: linear-gradient(to right, #79d7e2, #eba8f9);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            width: 85%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .rule-container {
+            display: none;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        h1 {
+            margin-top: 10px;
+        }
+		header {
+	         background-image: url('next.png');
+             background-color: #FF8C00;
+            color:#2F4F4F;
+            padding: 70px 1000px;
+            text-align: center;
+        }
+        footer {
+    background-image: url('next 1.png'); /* Change 'footer.png' to your image */
+    
+    background-position: center;
+    background-color: #FF8C00;
+    color: #2F4F4F;
+    padding: 70px 1000px;
+    text-align: center;
+}
+       
+        h2 {
+            background: rgb(15, 31, 207);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <div class="container">
+        <h1 class="title">Welcome to the Rules and Reglations.</h1>
+        <p class="description">Rule is always a rule and it should be respected by everyone.</p>
+        <div class="button-container">
+            <button class="cta-button" onclick="handlessClick()">whatsapp</button>
+            <button class="cta-button" onclick="handleClick()">Instagram</button>
+            <button class="cta-button" onclick="handlesClick()">Whatsapp</button>
+        </div>
+    </div>
+
+        <div class="button-container">
+            <button class="cta-button"  onclick="andleClick()">Photos</button>
+           
+        </div>
+        
+        <h2>About This Game</h2>
+        <div class="rules-box">
+            <button class="rule-button" onclick="toggleRule('rule1')">Total Budget</button>
+            <div id="rule1" class="rule-container">Total <b>Budget</b> in auction: 150cr.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule2')">RTM Count</button>
+            <div id="rule2" class="rule-container">Total number of <b>RTM</b>: 2.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule3')">Max Players</button>
+            <div id="rule3" class="rule-container"><b>Maximum</b> number of players for a team: 20.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule4')">Min Players</button>
+            <div id="rule4" class="rule-container"><b>Minimum</b> number of players for a team: 15.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule5')">Foreign Players</button>
+            <div id="rule5" class="rule-container">Maximum number of <b>foreign</b> players: 10.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule6')">Playing XI</button>
+            <div id="rule6" class="rule-container">Totally <b>12 players</b> in the playing XI (which can include <b>5 foreign</b> players).</div>
+        </div>
+        
+        <h2>Scoring Rules</h2>
+        <div class="rules-box">
+            <button class="rule-button" onclick="toggleRule('rule7')">Player Points</button>
+            <div id="rule7" class="rule-container">Each player in the list is assigned to a particular number of points.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule8')">Performance Rating</button>
+            <div id="rule8" class="rule-container">Points range from 1-10 based on the player's performance.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule9')">Name Accuracy</button>
+            <div id="rule9" class="rule-container">Player names should be written correctly, or you will not receive the exact points.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule10')">Copy-Paste Names</button>
+            <div id="rule10" class="rule-container">To avoid errors, copy and paste the player's name from the list.</div>
+            
+            <button class="rule-button" onclick="toggleRule('rule11')">Winning Criteria</button>
+            <div id="rule11" class="rule-container">The player with the highest points will be declared the winner.</div>
+        </div>
+    </div>
+    <div class="button-container">
+            <button class="cta-button" onclick="handlClick()">Lets Start</button>
+            </div>
+            <footer>
+
+            </footer>
+             <audio id="bg-music" autoplay loop>
+        <source src="bgm.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            let audio = document.getElementById("bg-music");
+            audio.play().catch(error => console.log("Autoplay blocked: " + error));
+        });
+        function handleClick() {
+            window.open( "https://www.instagram.com/su.jin7301/?next=%2F", "_blank");
+        }  function handlesClick() {
+             window.open("https://chat.whatsapp.com/KXFeIccsFF4Kmx43EYIowB", "_blank");
+        }function handlessClick() {
+           window.open( "https://chat.whatsapp.com/I5ZyUViBDhuKZq43quisod", "_blank");
+        }function handlClick() {
+            window.location.href = "new 555.html"; target="parent";
+        }function andleClick() {
+           window.location.href = "new47.html"; target="parent";
+        }
+       
+
+        function toggleRule(ruleId) {
+            var ruleElement = document.getElementById(ruleId);
+            if (ruleElement.style.display === "none" || ruleElement.style.display === "") {
+                ruleElement.style.display = "block";
+            } else {
+                ruleElement.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

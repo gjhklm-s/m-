@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Page</title>
+    <style>
+        * {
+             margin-bottom: 200rem;
+           padding: 20px 20px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('hi.png');
+            background-color:#cc3700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+             padding: 20px 20px;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background: #ff4500;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            background: #cc3700;
+            transform: scale(0.95);
+        }
+          /* Full-screen background video */
+       .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video covers entire screen */
+            z-index: -1; /* Places it behind other content */
+            opacity: 0.5; /* Adjust opacity to blend with background */
+        }
+    </style>
+</head>
+<body>
+ <video class="video-background" autoplay loop muted>
+        <source src="sk.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        <h1></h1>
+        <div class="button-grid">
+            <button onclick="handleClick1()">Photo 1</button>
+            <button onclick="handleClick2()">Photo 2</button>
+            <button onclick="handleClick3()">Photo 3</button>
+            <button onclick="handleClick4()">Photo 4</button>
+            <button onclick="handleClick5()">Photo 5</button>
+            <button onclick="handleClick6()">Photo 6</button>
+            <button onclick="handleClick7()">Photo 7</button>
+            <button onclick="handleClick8()">Photo 8</button>
+           
+            <button onclick="handleClick10()"style="display: block; margin: 20px auto;margin-bottom: 20px;text-align: center;justify-content: center;
+            align-items: center;">Back to rules</button>
+        </div>
+    </div>
+    <audio id="bg-music" autoplay loop>
+        <source src="bgm1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let audio = document.getElementById("bg-music");
+            audio.play().catch(error => console.log("Autoplay blocked: " + error));
+        });
+        function handleClick1() {
+            window.open("p1.png", "_blank");
+        }
+
+        function handleClick2() {
+            window.open("p2.png", "_blank");
+        }
+
+        function handleClick3() {
+            window.open("p3.png", "_blank");
+        }
+
+        function handleClick4() {
+            window.open("p4.png", "_blank");
+        }
+
+        function handleClick5() {
+            window.open("p5.png", "_blank");
+        }
+
+        function handleClick6() {
+            window.open("p6.png", "_blank");
+        }
+
+        function handleClick7() {
+            window.open("p7.png", "_blank");
+        }
+
+        function handleClick8() {
+            window.open("p8.png", "_blank");
+        }
+
+       
+
+        function handleClick10() {
+             window.location.href = "pub.html"; target="parent";
+        }
+    </script>
+
+</body>
+</html>
