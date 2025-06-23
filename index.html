@@ -1,213 +1,125 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Enhanced Greeting Page</title>
-    <style>
-      /* Smooth gradient background animation */
-      body {
-        text-align: center;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(120deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
-        background-size: 300% 300%;
-        animation: gradientBG 10s ease infinite;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ATM Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #00c9a7;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .container {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏧 ATM INTERFACE</h1>
+  <div class="container">
+    <input type="number" id="amountInput" placeholder="Enter amount" /><br>
+    <button onclick="atm.withdraw()">Withdraw</button>
+    <button onclick="atm.deposit()">Deposit</button>
+    <button onclick="atm.checkBalance()">Check Balance</button>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // BankAccount class
+    class BankAccount {
+      constructor(initialBalance = 0) {
+        this.balance = initialBalance;
       }
 
-      @keyframes gradientBG {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
+      deposit(amount) {
+        if (amount <= 0) return false;
+        this.balance += amount;
+        return true;
       }
 
-      /* Typewriter effect for the heading */
-      h1 {
-        font-size: 6rem;
-        color: #ffffff;
-        overflow: hidden;
-        border-right: 0.2em solid #ffffff;
-        white-space: nowrap;
-        margin: 0 auto;
-        letter-spacing: 0.2em;
-        animation: typing 3s steps(30, end),
-          blink 0.5s step-end infinite alternate;
+      withdraw(amount) {
+        if (amount > this.balance || amount <= 0) return false;
+        this.balance -= amount;
+        return true;
       }
 
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
+      getBalance() {
+        return this.balance;
+      }
+    }
+
+    // ATM class
+    class ATM {
+      constructor(account) {
+        this.account = account;
       }
 
-      @keyframes blink {
-        from {
-          border-color: transparent;
-        }
-        to {
-          border-color: white;
-        }
+      getInputAmount() {
+        const amount = Number(document.getElementById("amountInput").value);
+        return isNaN(amount) || amount <= 0 ? null : amount;
       }
 
-      /* Styling input and button */
-      input {
-        padding: 30px;
-        font-size: 2.5rem;
-        margin-top: 30px;
-        border: 4px solid #fff;
-        border-radius: 10px;
-        width: 600px;
-      }
-
-      button {
-        margin-top: 30px;
-        padding: 30px 50px;
-        font-size: 2.5rem;
-        background-color: #ffffff;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        color: #4caf50;
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      button:hover {
-        background-color: #4caf50;
-        color: #ffffff;
-        transform: scale(1.2);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
-      }
-
-      nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-      }
-
-      nav a {
-        color: white;
-        text-decoration: none;
-        font-size: 2.5rem;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
-      }
-
-      /* Greeting message styling */
-      #greetingMessage {
-        margin-top: 30px;
-        font-size: 3rem;
-        color: #ffffff;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 5rem;
+      deposit() {
+        const amount = this.getInputAmount();
+        if (amount === null) {
+          this.showMessage("⚠️ Enter a valid amount to deposit.");
+          return;
         }
-
-        input {
-          width: 95%;
-          font-size: 3rem;
-          padding: 40px;
-        }
-
-        button {
-          width: 95%;
-          font-size: 3rem;
-          padding: 40px;
-        }
-
-        nav {
-          flex-direction: column;
-          gap: 2rem;
-        }
-
-        nav a {
-          font-size: 3rem;
-        }
+        const success = this.account.deposit(amount);
+        this.showMessage(success ? `✅ ₹${amount} deposited successfully.` : `❌ Deposit failed.`);
       }
 
-      @media (min-width: 1024px) {
-        h1 {
-          font-size: 3.5rem;
+      withdraw() {
+        const amount = this.getInputAmount();
+        if (amount === null) {
+          this.showMessage("⚠️ Enter a valid amount to withdraw.");
+          return;
         }
-
-        input {
-          width: 300px;
-          font-size: 1.2rem;
-        }
-
-        button {
-          font-size: 1.2rem;
-          padding: 15px 25px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <a href="https://www.instagram.com/su.jin7301/?next=%2F" target="_blank"
-        >Home Insta</a
-      >
-      <a>Contact: 9600714070</a>
-    </nav>
-
-    <div>
-      <h1>Welcome!</h1>
-      <p style="color: #fff; font-size: 3rem">Enter your name below:</p>
-      <input type="text" id="userName" placeholder="Your name" />
-      <br />
-      <button onclick="greetUser()">Submit</button>
-      <p id="greetingMessage"></p>
-      <button onclick="goToNextPage()">Go to Rules</button>
-      
-    </div>
-
-    <script>
-     
-      let isSubmitted = false; // Track if the submit button has been clicked
-
-      function greetUser() {
-        const name = document.getElementById("userName").value;
-        if (name) {
-          document.getElementById(
-            "greetingMessage"
-          ).innerText = `Hello, ${name}! Welcome to the my Website.`;
-          isSubmitted = true; // Mark as submitted
-        } else {
-          alert("Please enter your name.");
-          isSubmitted = false;
-        }
+        const success = this.account.withdraw(amount);
+        this.showMessage(success ? `✅ ₹${amount} withdrawn successfully.` : `❌ Insufficient balance or invalid amount.`);
       }
 
-      function goToNextPage() {
-        const name = document.getElementById("userName").value;
-        if (!name) {
-          alert("Please enter your name before proceeding to the next page.");
-        } else if (!isSubmitted) {
-          alert("Please click the Submit button before proceeding.");
-        } else {
-          window.location.href = "pub.html";
-        }
+      checkBalance() {
+        const balance = this.account.getBalance();
+        this.showMessage(`💰 Current Balance: ₹${balance}`);
       }
-    </script>
-  </body>
+
+      showMessage(msg) {
+        document.getElementById("message").textContent = msg;
+        document.getElementById("amountInput").value = "";
+      }
+    }
+
+    // Initialize ATM with a bank account (₹1000 initial)
+    const userAccount = new BankAccount(1000);
+    const atm = new ATM(userAccount);
+  </script>
+
+</body>
 </html>
